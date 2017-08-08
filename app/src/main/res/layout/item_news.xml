@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layoutDirection="ltr"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:background="@drawable/menutem"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layoutDirection="rtl"
+        android:layout_gravity="center"
+        android:layout_margin="5dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="77dp"
+                android:layout_height="77dp"
+                android:id="@+id/user_img"
+                android:src="@drawable/home"
+                android:layout_margin="15dp"
+                android:background="@drawable/photooflistviewofnews" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="salam"
+            android:textAlignment="textStart"
+            android:paddingLeft="60dp"
+            android:layout_toLeftOf="@id/user_img"
+            android:textDirection="ltr"
+            android:layout_marginTop="9dp"
+            android:textColor="#3377ff"
+            android:textSize="12dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_toLeftOf="@id/user_img"
+            android:textDirection="rtl"
+            android:textColor="#ff1a1a"
+            android:lines="2"
+            android:text="salam"
+            android:layout_marginTop="45dp"
+            android:textSize="16dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textDirection="ltr"
+            android:textColor="#000"
+            android:lines="3"
+            android:text="salam"
+            android:layout_marginTop="80dp"
+            android:layout_marginRight="55dp"
+            android:textSize="16dp"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

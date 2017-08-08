@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/grp1" android:checkableBehavior="all"
+        >
+
+        <item
+            android:id="@+id/nav_alaghe"
+            android:title="علاقه مندی ها "
+            android:icon="@drawable/star">
+        </item>
+    </group>
+
+
+    <group android:id="@+id/grp2" android:checkableBehavior="all" >
+        <item
+            android:id="@+id/nav_logout"
+            android:title="خروج"
+            android:icon="@drawable/exit"/>
+    </group>
+
+</menu>

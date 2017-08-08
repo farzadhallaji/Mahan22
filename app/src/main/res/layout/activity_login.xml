@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#e03838"
+    android:layout_height="match_parent"
+    tools:context="azad.hallaji.farzad.com.masirezendegi.PageLogin">
+
+
+
+    <LinearLayout
+        android:background="@drawable/bg"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.7"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:layout_weight="1.4"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/text_show"
+                    android:textAlignment="center"
+                    android:minLines="4"
+                    android:textColor="#000"
+                    android:textSize="13dp"
+                    android:layout_centerHorizontal="true"
+                    android:text="برای وارد شدن به برنامه لطفا شماره تلفن خود را وارد نمائید تا کد چهار رقمی ماهان برای شما ارسال گردد."/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_centerHorizontal="true"
+                    android:inputType="phone"
+                    android:hint="09*********"
+                    android:gravity="center"
+                    android:backgroundTint="#e03838"
+                    android:maxLength="11"
+                    android:id="@+id/EditSendNum"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.3" >
+
+                <Button
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:text="ثبت شماره"
+                    android:textColor="#fff"
+                    android:background="@drawable/gradient"
+                    android:id="@+id/ButtonSend"
+                   />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.9"/>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:layout_marginBottom="50dp"
+            android:id="@+id/progressbarsandaha"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
