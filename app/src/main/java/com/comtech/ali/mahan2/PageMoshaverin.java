@@ -103,30 +103,36 @@ public class PageMoshaverin extends AppCompatActivity
         listView = (GridView) findViewById(R.id.gridview);
 
 
-       listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*listView.setOnClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-           //   if (totalList.get(i).getServiceType().equals("1")) {
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
                 //getApplication()
-                  Log.i("adfffgree", totalList.get(i).getServiceType());
-                  Intent intent = new Intent(PageMoshaverin.this, ExplainMoshaver.class);
-                    intent.putExtra("ServiceID", totalList.get(i).getServiceID());
-                  //finish();
-                  intent.addFlags(Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY);
-                  intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-                  //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                  //intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                    /*intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);*/
-                  startActivity(intent);  //   }
-                 //   else if(totalList.get(i).getServiceType().equals("0")) {
-                  //Intent intent=new Intent(getApplication(), ExplainMoshaver.class);
-                  //startActivity(intent);
-             // }
+                Log.i("zexcdfvgbhjnkml", totalList.get(position).getServiceType());
+                Intent intent = new Intent(PageMoshaverin.this, ExplainMoshaver.class);
+                intent.putExtra("ServiceID", totalList.get(position).getServiceID());
+                intent.addFlags(Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);  //
+                //
+            }
+
+        });*/
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+                    Log.i("zexcdfvgbhjnkml", "asas :"+position+"");
+                    Log.i("zexcdfvgbhjnkml", "asas :"+view.getId());
+
+                Log.i("zexcdfvgbhjnkml", totalList.get(position).getServiceType());
+
+
             }
         });
+
 
         LayoutInflater li = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         ftView = li.inflate(R.layout.footer_view, null);

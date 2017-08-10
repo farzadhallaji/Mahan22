@@ -5,56 +5,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:clickable="false"
-    android:focusable="false"
     android:orientation="vertical"
     android:padding="10dp">
 
-    <com.andexert.library.RippleView
-        android:id="@+id/more"
-        rv_centered="true"
+    <LinearLayout
+        android:layout_width="150dp"
+        android:clickable="true"
+        android:layout_height="20dp"/>
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:rv_color="#fff"
-        android:clickable="false"
-        android:focusable="false"
-        app:rv_rippleDuration="200">
+        android:orientation="horizontal">
         <LinearLayout
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:id="@+id/linearLayout"
-            android:orientation="vertical"
-            android:background="@drawable/menutem">
+            android:layout_width="20dp"
+            android:clickable="true"
+            android:layout_height="130dp"/>
 
 
+            <LinearLayout
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:clickable="false"
+                android:id="@+id/linearLayout"
+                android:orientation="vertical"
+                android:background="@drawable/menutem">
 
+                <ImageView
+                    android:id="@+id/PicOfService"
+                    android:layout_width="50dp"
+                    android:layout_marginTop="10dp"
+                    android:clickable="false"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    />
 
-            <ImageView
-                android:id="@+id/PicOfService"
-                android:layout_width="50dp"
-                android:layout_marginTop="10dp"
-                android:clickable="true"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                />
-
-            <TextView
-                android:id="@+id/NameOfService"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/PicOfService"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:textAlignment="center"
-                android:text="Item"
-                android:textColor="#000"
-                android:textSize="15dp"
-                />
-
-
-
-
-</LinearLayout>
-    </com.andexert.library.RippleView>
+                <TextView
+                    android:id="@+id/NameOfService"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/PicOfService"
+                    android:clickable="false"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:text="Item"
+                    android:textColor="#000"
+                    android:textSize="15dp"
+                    />
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="20dp"
+            android:clickable="true"
+            android:layout_height="130dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="150dp"
+        android:clickable="true"
+        android:layout_height="20dp"/>
 </LinearLayout>

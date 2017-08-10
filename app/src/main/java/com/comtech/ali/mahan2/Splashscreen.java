@@ -42,7 +42,8 @@ public class Splashscreen extends Activity {
     private void startNextActivity() {
         if (isFinishing())
             return;
-        startActivity(new Intent(this, PageLogin.class));
+        //startActivity(new Intent(this, PageLogin.class));
+        startActivity(new Intent(this, PageMoshaverin.class));
         finish();
     }
 }
