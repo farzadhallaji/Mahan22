@@ -13,6 +13,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -64,6 +65,9 @@ public class ExplainMoshaver extends Activity
 
         gridView=(GridView)findViewById(R.id.gridview);
 
+
+
+
         /*   if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if(extras == null) {
@@ -103,6 +107,30 @@ public class ExplainMoshaver extends Activity
 
         if(isOnline()){
             postgetData();
+
+            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    Intent intent =new Intent(ExplainMoshaver.this , ActivityShowMovie.class);
+                    intent.putExtra("contentid",totalList.get(position).getID());
+                    intent.putExtra("typeid",totalList.get(position).getContentType());
+
+                    startActivity(intent);
+
+
+                }
+            });
+
+
+
+
+
+
+
+
+
+
         } else {
             Toast.makeText(getApplicationContext(), "Network isn't available", Toast.LENGTH_LONG).show();
         }
@@ -288,6 +316,8 @@ public class ExplainMoshaver extends Activity
 
         if (id == R.id.nav_alaghe) {
             Intent intent =new Intent(ExplainMoshaver.this , PageAlaghe.class);
+
+
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
             //intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
