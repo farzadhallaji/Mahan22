@@ -385,7 +385,7 @@ public class ExplainMoshaver extends Activity
     }*/
 
 
-    @Override
+    /*@Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.END)) {
@@ -396,5 +396,5 @@ public class ExplainMoshaver extends Activity
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         finish();
         startActivity(intent);
-    }
+    }*/
 }

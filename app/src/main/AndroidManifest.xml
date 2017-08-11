@@ -71,7 +71,8 @@
             android:value="07612b0686c4ee99900bebd7197c7fbefe38695a" />
 
         <activity android:name=".ExplainMoshaver2" />
-        <activity android:name=".ActivityShowMovie"></activity>
+        <activity android:name=".ActivityShowMovie" />
+        <activity android:name=".ActivityShowNews"></activity>
     </application>
 
 </manifest>

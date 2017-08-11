@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -102,6 +103,21 @@ public class ExplainMoshaver2 extends Activity
 
         if(isOnline()){
             postgetData();
+
+
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    Intent intent =new Intent(ExplainMoshaver2.this , ActivityShowNews.class);
+                    intent.putExtra("contentid",totalList.get(position).getID());
+                    intent.putExtra("typeid",totalList.get(position).getContentType());
+
+                    startActivity(intent);
+                }
+            });
+
+
         } else {
             Toast.makeText(getApplicationContext(), "Network isn't available", Toast.LENGTH_LONG).show();
         }

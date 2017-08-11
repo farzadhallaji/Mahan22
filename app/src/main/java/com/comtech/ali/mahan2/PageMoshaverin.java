@@ -123,6 +123,8 @@ public class PageMoshaverin extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                //ToDO uncmnt
+
                 if(totalList.get(position).getServiceType().equals("1")){
                     Intent intent = new Intent(PageMoshaverin.this, ExplainMoshaver.class);
                     intent.putExtra("ServiceID", totalList.get(position).getServiceID());
@@ -132,14 +134,6 @@ public class PageMoshaverin extends AppCompatActivity
                     intent.putExtra("ServiceID", totalList.get(position).getServiceID());
                     startActivity(intent);  //
                 }
-
-/*
-                    Log.i("zexcdfvgbhjnkml", "asas :"+position+"");
-                    Log.i("zexcdfvgbhjnkml", "asas :"+view.getId());
-
-                    Log.i("zexcdfvgbhjnkml", totalList.get(position).getServiceType());
-
-*/
             }
         });
 
