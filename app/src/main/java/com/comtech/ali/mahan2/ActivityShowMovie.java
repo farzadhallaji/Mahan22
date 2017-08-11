@@ -3,12 +3,16 @@ package com.comtech.ali.mahan2;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -16,6 +20,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -126,7 +132,38 @@ public class ActivityShowMovie extends AppCompatActivity {
 
             JSONObject jsonObject = new JSONObject(response);
 
+            TextView tarix = (TextView) findViewById(R.id.tarix);
+            assert tarix != null;
+            tarix.setText(jsonObject.getString("PTime"));
+            TextView descriptionnnn = (TextView) findViewById(R.id.descriptionnnn);
+            assert descriptionnnn != null;
+            descriptionnnn.setText(jsonObject.getString("Title"));
 
+            String vidAddress =new JSONObject(new JSONArray(jsonObject.getString("Media")).get(0).toString()).getString("URL");
+            Uri vidUri = Uri.parse(vidAddress);
+
+            final VideoView videoView = (VideoView)findViewById(R.id.movieninahsi);
+            assert videoView != null;
+            videoView.setVideoURI(vidUri);
+
+            final ImageView imageView = (ImageView)findViewById(R.id.playimg);
+            assert imageView != null;
+            imageView.setVisibility(View.VISIBLE);
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    imageView.setVisibility(View.GONE);
+                    videoView.start();
+                }
+            });
+
+            videoView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    videoView.pause();
+                    imageView.setVisibility(View.VISIBLE);
+                }
+            });
 
         } catch (JSONException e) {
             e.printStackTrace();
