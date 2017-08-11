@@ -2,16 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.comtech.ali.mahan2">
 
-
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-feature android:name="android.hardware.location.gps" />
+
+    <meta-data
+        android:name="io.fabric.ApiKey"
+        android:value="07612b0686c4ee99900bebd7197c7fbefe38695a" />
 
     <application
         android:name=".App"
@@ -20,63 +23,55 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".Splashscreen"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-
-
-        <activity android:name=".PageLogin"
+        <activity
+            android:name=".Splashscreen"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PageLogin"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
-
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:theme="@style/AppTheme.CustomeStyle"
             android:name=".ListServicesByUser"
-            android:screenOrientation="portrait" />
-
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.CustomeStyle" />
         <activity
-            android:theme="@style/AppTheme.NoActionBar"
+            android:name=".ExplainMoshaver"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".ListServices"
-            android:screenOrientation="portrait" />
-
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:theme="@style/AppTheme.NoActionBar"
             android:name=".ListeMoshaverin"
-            android:screenOrientation="portrait" />
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:theme="@style/AppTheme.NoActionBar"
             android:name=".PageMoshaverin"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="07612b0686c4ee99900bebd7197c7fbefe38695a" />
+
+        <activity android:name=".ExplainMoshaver2" />
+        <activity android:name=".ActivityShowMovie"></activity>
     </application>
 
-    <meta-data
-        android:name="io.fabric.ApiKey"
-        android:value="07612b0686c4ee99900bebd7197c7fbefe38695a"
-        />
 </manifest>

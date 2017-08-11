@@ -2,6 +2,7 @@ package com.comtech.ali.mahan2;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -85,10 +87,38 @@ public class ListServicesByUser extends AppCompatActivity {
             expandableListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    view.setSelected(true);
-                    expandableListView.setItemChecked(i, true);
+                    //view.setSelected(true);
+                    expandableListView.setAdapter(new ItemServiceByUser(ListServicesByUser.this, totalList));
+                    GlobalVar.SELECTED_ITEM_SICH_OLUB=i;
+                    int h1 = expandableListView.getHeight();
+                    int h2 = view.getHeight();
+                    expandableListView.setSelectionFromTop(i, h1/2 - h2/2);
+
                 }
             });
+
+            Button selectFromSpinner = (Button)findViewById(R.id.selectFromSpinner);
+            selectFromSpinner.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if(totalList.get(GlobalVar.SELECTED_ITEM_SICH_OLUB).getServiceType().equals("1")){
+                        Intent intent = new Intent(getApplicationContext(), ExplainMoshaver.class);
+                        intent.putExtra("ServiceID", totalList.get(GlobalVar.SELECTED_ITEM_SICH_OLUB).getServiceID());
+                        startActivity(intent);  //
+                    }else{
+                        Intent intent = new Intent(getApplicationContext(), ExplainMoshaver2.class);
+                        intent.putExtra("ServiceID", totalList.get(GlobalVar.SELECTED_ITEM_SICH_OLUB).getServiceID());
+                        startActivity(intent);  //
+                    }
+
+
+                }
+            });
+
+
+
+
           /*  ListeMarakezListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

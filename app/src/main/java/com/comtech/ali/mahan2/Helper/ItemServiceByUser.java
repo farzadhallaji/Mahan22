@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.comtech.ali.mahan2.R;
+import com.comtech.ali.mahan2.model.GlobalVar;
 import com.comtech.ali.mahan2.model.ServicesByUser;
 
 import java.util.ArrayList;
@@ -37,8 +38,12 @@ public class ItemServiceByUser extends ArrayAdapter<ServicesByUser>{
     public View getView(int position, View convertView, ViewGroup parent) {
 
         LayoutInflater vi = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = vi.inflate(R.layout.item_markaz, null);
-
+        View view;
+        if(position== GlobalVar.SELECTED_ITEM_SICH_OLUB){
+            view = vi.inflate(R.layout.item_shmarkaz, null);
+        }else{
+            view = vi.inflate(R.layout.item_markaz, null);
+        }
         ServicesByUser Ittem = reportItemList.get(position);
 
         TextView Name = (TextView) view.findViewById(R.id.groupName);
@@ -47,6 +52,8 @@ public class ItemServiceByUser extends ArrayAdapter<ServicesByUser>{
 
         return view;
     }
+
+
 }
 
 

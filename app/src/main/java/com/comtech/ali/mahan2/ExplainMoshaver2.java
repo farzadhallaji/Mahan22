@@ -5,15 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,9 +26,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.comtech.ali.mahan2.Helper.ItemHalatiKeTypeYekAst;
+import com.comtech.ali.mahan2.Helper.ItemHalatiKeTypeYekNist;
 import com.comtech.ali.mahan2.model.GlobalVar;
-import com.comtech.ali.mahan2.model.HalatiKeTypeYekAst;
+import com.comtech.ali.mahan2.model.HalatiKeYekNist;
 import com.crashlytics.android.Crashlytics;
 import com.loopj.android.http.AsyncHttpClient;
 
@@ -42,27 +44,27 @@ import java.util.Map;
 import io.fabric.sdk.android.Fabric;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class ExplainMoshaver extends Activity
+public class ExplainMoshaver2 extends Activity
         implements NavigationView.OnNavigationItemSelectedListener  {
 
     private static AsyncHttpClient client = new AsyncHttpClient();
     RequestQueue MyRequestQueue;
 
-    ItemHalatiKeTypeYekAst adapter;
-    List<HalatiKeTypeYekAst> totalList=new ArrayList<>();
+    ItemHalatiKeTypeYekNist adapter;
+    List<HalatiKeYekNist> totalList=new ArrayList<>();
     int tempcount=0;
 
 
     String serviceidi="84";
-    GridView gridView;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_get_movie);
+        setContentView(R.layout.activity_explain_moshaver2);
         Fabric.with(this, new Crashlytics());
+        listView=(ListView) findViewById(R.id.listist);
 
-        gridView=(GridView)findViewById(R.id.gridview);
 
         /*   if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
@@ -92,9 +94,6 @@ public class ExplainMoshaver extends Activity
                 serviceidi= "0";
             } else {
                 serviceidi= extras.getString("ServiceID");
-                Log.i("responseresponse",serviceidi);
-
-
             }
         } else {
             serviceidi= (String) savedInstanceState.getSerializable("ServiceID");
@@ -133,7 +132,7 @@ public class ExplainMoshaver extends Activity
 
             @Override
             public void onResponse(String response) {
-                Log.i("Explainservice",response);
+                Log.i("Explainservice2222222222222",response);
                 updatelistview(response);
             }
         }, new Response.ErrorListener() { //Create an error listener to handle errors appropriately.
@@ -229,7 +228,7 @@ public class ExplainMoshaver extends Activity
 
         Log.i("qwertyuioaladfffgree", response);
 
-        List<HalatiKeTypeYekAst> templist=new ArrayList<>();
+        List<HalatiKeYekNist> templist=new ArrayList<>();
         Log.i("saasasa",response) ;
 
         try {
@@ -247,15 +246,21 @@ public class ExplainMoshaver extends Activity
                 //Toast.makeText(getApplicationContext(),tags.get(j).toString(), Toast.LENGTH_LONG).show();
 
 //                        }
-                HalatiKeTypeYekAst temp = new HalatiKeTypeYekAst(s.get("ID").toString(),s.get("ContentType")
-                        .toString(),s.get("Lead").toString(), s.getString("Title"), s.getString("PreTitle"),
-                        s.getString("PTime"), s.getString("Sort"), s.getString("PicURL"));
+                HalatiKeYekNist temp = new HalatiKeYekNist(
+                        s.get("ID").toString()
+                        ,s.get("ContentType").toString()
+                        ,s.get("Lead").toString()
+                        ,s.getString("Title")
+                        ,s.getString("PreTitle")
+                        ,s.getString("PTime")
+                        ,s.getString("Sort")
+                        ,s.getString("PicURL"));
                 templist.add(temp);
             }
             totalList.addAll(templist);
             if(tempcount==0){
-                adapter =new ItemHalatiKeTypeYekAst(ExplainMoshaver.this,totalList);  //deghat dar sorat taghir name class
-                gridView.setAdapter(adapter);
+                adapter =new ItemHalatiKeTypeYekNist(ExplainMoshaver2.this,totalList);  //deghat dar sorat taghir name class
+                listView.setAdapter(adapter);
                 tempcount++;
 
             }
@@ -287,7 +292,7 @@ public class ExplainMoshaver extends Activity
         int id = item.getItemId();
 
         if (id == R.id.nav_alaghe) {
-            Intent intent =new Intent(ExplainMoshaver.this , PageAlaghe.class);
+            Intent intent =new Intent(ExplainMoshaver2.this , PageAlaghe.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
             //intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -355,16 +360,16 @@ public class ExplainMoshaver extends Activity
     }*/
 
 
-    @Override
+    /*@Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.END)) {
             drawer.closeDrawer(GravityCompat.END);
         }
         //super.onBackPressed();
-        Intent intent =new Intent(ExplainMoshaver.this , PageMoshaverin.class);
+        Intent intent =new Intent(ExplainMoshaver2.this , PageMoshaverin.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         finish();
         startActivity(intent);
-    }
+    }*/
 }

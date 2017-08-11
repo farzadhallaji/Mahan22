@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.comtech.ali.mahan2.R;
-import com.comtech.ali.mahan2.model.HalatiKeTypeYekAst;
+import com.comtech.ali.mahan2.model.HalatiKeYekNist;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -22,34 +22,36 @@ import java.util.List;
 /**
  * Created by Techno Service on 8/5/2017.
  */
-public class ItemHalatiKeTypeYekAst extends ArrayAdapter<HalatiKeTypeYekAst> {
+public class ItemHalatiKeTypeYekNist  extends ArrayAdapter<HalatiKeYekNist> {
 
     private Context mContext;
-    private List<com.comtech.ali.mahan2.model.HalatiKeTypeYekAst> reportItemList = new ArrayList<HalatiKeTypeYekAst>();
+    private List<com.comtech.ali.mahan2.model.HalatiKeYekNist> reportItemList = new ArrayList<HalatiKeYekNist>();
 
 
-    public ItemHalatiKeTypeYekAst(Context context, List<com.comtech.ali.mahan2.model.HalatiKeTypeYekAst> objects) {
+    public ItemHalatiKeTypeYekNist(Context context, List<com.comtech.ali.mahan2.model.HalatiKeYekNist> objects) {
 
         super(context, 0, objects);
         this.mContext = context;
         this.reportItemList = objects;
     }
 
+
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
         LayoutInflater vi = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = vi.inflate(R.layout.gridview_movie, null);
+        View view = vi.inflate(R.layout.item_news, null);
 
-        TextView Name = (TextView) view.findViewById(R.id.descrption);
-        ImageView imageView = (ImageView) view.findViewById(R.id.picofmovie);
-        HalatiKeTypeYekAst Ittem = reportItemList.get(position);
-
-        Name.setText(Ittem.getTitle());
-        //new DownloadImageTask(imageView).execute(Ittem.getPicURL());
-        Log.i("onPostExecuteonPostExecute",Ittem.getPicURL());
-
-
+        TextView tarix = (TextView) view.findViewById(R.id.tarixS);
+        TextView mmatn = (TextView) view.findViewById(R.id.matn);
+        TextView TiTLELELE = (TextView) view.findViewById(R.id.TiTLELELE);
+        ImageView imageView = (ImageView) view.findViewById(R.id.user_img);
+        HalatiKeYekNist Ittem = reportItemList.get(position);
+        tarix.setText(Ittem.getPTime());
+        mmatn.setText(Ittem.getLead());
+        TiTLELELE.setText(Ittem.getTitle());
+        new DownloadImageTask(imageView).execute(reportItemList.get(position).getPicURL());
         return view;
     }
 
@@ -63,7 +65,6 @@ public class ItemHalatiKeTypeYekAst extends ArrayAdapter<HalatiKeTypeYekAst> {
         protected Bitmap doInBackground(String... urls) {
             String urldisplay = urls[0];
             Bitmap mIcon11 = null;
-
             try {
                 InputStream in = new java.net.URL(urldisplay).openStream();
                 mIcon11 = BitmapFactory.decodeStream(in);
@@ -74,9 +75,7 @@ public class ItemHalatiKeTypeYekAst extends ArrayAdapter<HalatiKeTypeYekAst> {
             return mIcon11;
         }
 
-
         protected void onPostExecute(Bitmap result) {
-
             bmImage.setImageBitmap(result);
         }
     }

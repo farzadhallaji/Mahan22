@@ -5,6 +5,7 @@ package com.comtech.ali.mahan2.model;
  */
 public class GlobalVar {
 
+    public static int SELECTED_ITEM_SICH_OLUB=-1;
     private static String UserID="";
     public static void setUserID(String userID) {UserID = userID;}
     public static String getUserID() {

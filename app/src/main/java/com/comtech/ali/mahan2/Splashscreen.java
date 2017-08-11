@@ -2,9 +2,11 @@ package com.comtech.ali.mahan2;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.widget.ImageView;
 import android.widget.VideoView;
 
@@ -42,8 +44,12 @@ public class Splashscreen extends Activity {
     private void startNextActivity() {
         if (isFinishing())
             return;
-        //startActivity(new Intent(this, PageLogin.class));
-        startActivity(new Intent(this, PageMoshaverin.class));
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String restoredText = preferences.getString("UID",null);
+        if(restoredText == null)
+            startActivity(new Intent(this, PageLogin.class));
+        else
+            startActivity(new Intent(this, PageMoshaverin.class));
         finish();
     }
 }

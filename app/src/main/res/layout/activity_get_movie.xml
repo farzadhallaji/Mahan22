@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layoutDirection="ltr"
-    android:background="@drawable/bg"
+    android:background="@drawable/bgbgbgbgb"
     android:baselineAligned="false"
-    android:id="@+id/lay2"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:id="@+id/selem"
+    android:orientation="vertical">
 
 
     <android.support.v7.widget.Toolbar
@@ -28,11 +27,11 @@
             android:layout_marginTop="10dp"
             android:gravity="right">
             <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_margin="5dp"
-            android:id="@+id/backButton"
-            android:src="@drawable/searchchch"/>
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
+                android:id="@+id/backButton"
+                android:src="@drawable/searchchch"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -57,7 +56,6 @@
 
     </android.support.v7.widget.Toolbar>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -76,23 +74,25 @@
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="صوت و فیلم"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_gravity="center"
+                    android:textColor="#000"
+                    android:textAlignment="center"
+                    android:textDirection="rtl"
+                    />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1.7"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="45dp"
-                    android:layout_marginRight="45dp"
-                    android:text="گروه ها ..."
-                   android:background="#b8b8b8"
-                    android:textStyle="bold"
-                    android:id="@+id/showSpinner"
-                    android:textColor="#e3010f"
-                    android:textAlignment="center"/>
+                    android:layout_weight="3.9"/>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -105,7 +105,7 @@
                         android:layout_height="match_parent"
                         >
 
-                        <ProgressBar
+                       <ProgressBar
                             android:id="@+id/myProgress"
                             android:layout_width="90dp"
                             android:layout_height="90dp"
@@ -118,7 +118,7 @@
 
                         <TextView
                             android:id="@+id/myTextProgress"
-                            android:text="لطفا منتظر بمانید"
+                            android:text="لطفا منتظر بمانید ..."
                             android:textColor="#cc0066"
                             android:textSize="12dp"
                             android:textAlignment="center"
@@ -131,17 +131,15 @@
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content" />
 
-                        <GridView
+                        <GridView xmlns:android="http://schemas.android.com/apk/res/android"
                             android:id="@+id/gridview"
-                            android:layout_width="300dp"
-                            android:layout_marginTop="30dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:numColumns="2"
-                            android:layout_centerHorizontal="true"
-                            tools:listitem="@layout/gridview_custom_layout"
+                            android:layout_margin="10dp"
+                            tools:listitem="@layout/gridview_movie"
                             android:listSelector="#00000000"
-                            android:stretchMode="columnWidth"/>
-
+                            android:stretchMode="columnWidth" />
 
                     </RelativeLayout>
 
@@ -151,16 +149,6 @@
             </LinearLayout>
 
         </RelativeLayout>
-
-
-
-
-
-
-
-
-
-
 
     </LinearLayout>
 

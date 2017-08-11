@@ -123,13 +123,23 @@ public class PageMoshaverin extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                if(totalList.get(position).getServiceType().equals("1")){
+                    Intent intent = new Intent(PageMoshaverin.this, ExplainMoshaver.class);
+                    intent.putExtra("ServiceID", totalList.get(position).getServiceID());
+                    startActivity(intent);  //
+                }else{
+                    Intent intent = new Intent(PageMoshaverin.this, ExplainMoshaver2.class);
+                    intent.putExtra("ServiceID", totalList.get(position).getServiceID());
+                    startActivity(intent);  //
+                }
 
+/*
                     Log.i("zexcdfvgbhjnkml", "asas :"+position+"");
                     Log.i("zexcdfvgbhjnkml", "asas :"+view.getId());
 
-                Log.i("zexcdfvgbhjnkml", totalList.get(position).getServiceType());
+                    Log.i("zexcdfvgbhjnkml", totalList.get(position).getServiceType());
 
-
+*/
             }
         });
 
@@ -173,7 +183,7 @@ public class PageMoshaverin extends AppCompatActivity
                         //Toast.makeText(getApplicationContext(),tags.get(j).toString(), Toast.LENGTH_LONG).show();
 
 //                        }
-                        Services temp = new Services(s.get("Service").toString(),s.get("ServiceType").toString(),s.get("ServiceID").toString(),s.getString("IconURL").toString());
+                        Services temp = new Services(s.get("Service").toString(),s.get("ServiceID").toString(),s.get("ServiceType").toString(),s.getString("IconURL").toString());
                         templist.add(temp);
                     }
                     totalList.addAll(templist);
