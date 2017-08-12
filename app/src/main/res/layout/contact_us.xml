@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    android:background="@drawable/bfdfer"
+    android:id="@+id/lay2"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/toolbar2"
+        android:background="#e3010f"
+        android:layout_weight="27"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:gravity="right">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
+                android:id="@+id/backButton"
+                android:src="@drawable/searchchch"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:layout_marginTop="5dp"
+                    android:text="گروه آموزشی ماهان"
+                    android:textColor="#ffffff"
+                    android:textSize="20dp"/>
+            </LinearLayout>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
+                android:id="@+id/menuButton"
+                android:src="@drawable/ic_menu_white"/>
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3">
+
+
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.comtech.ali.mahan.MainActivity"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/splash_img" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="فرم ارتباط با ما"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:textColor="#000"
+                    android:textSize="15dp"/>
+                <EditText
+                    android:id="@+id/gettekst"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="موضوع"
+                    android:inputType="text"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:gravity="center"
+                    android:textSize="14dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/edittekst"/>
+              
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+                        <ListView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="40dp"
+                            android:layout_marginLeft="40dp"
+                            android:id="@+id/listssss"
+
+                            />
+
+                       <EditText
+                           android:layout_width="match_parent"
+                           android:layout_height="100dp"
+                           android:background="#fff"
+                           android:layout_marginTop="15dp"
+                           android:layout_centerHorizontal="true"
+                           android:layout_marginRight="50dp"
+                           android:id="@+id/getmatn"
+                           android:textColorHint="#000"
+                           android:hint="متن پیام"
+                           android:textSize="13dp"
+                           android:inputType="text"
+                           android:layout_marginLeft="50dp"
+                           android:layout_below="@+id/listssss"/>
+                        <Button
+                            android:id="@+id/sendform"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="20dp"
+                            android:background="#e3010f"
+                            android:layout_below="@+id/getmatn"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#fff"
+                            android:text="ارسال فرم"
+                            />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

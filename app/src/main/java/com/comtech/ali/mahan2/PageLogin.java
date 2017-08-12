@@ -278,7 +278,6 @@ public class PageLogin extends AppCompatActivity {
     }
     private void updategraffff(String message, String s, final String phone) {
 
-        LayoutInflater inflater = this.getLayoutInflater();
 
 
 
@@ -341,15 +340,7 @@ public class PageLogin extends AppCompatActivity {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
     public void onBackPressed() {
-       /* DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.END)) {
-            drawer.closeDrawer(GravityCompat.END);
-        }*/
-      /*  Intent intent = new Intent(PageMoshaverin.this,PageLogin.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(intent);*/
+
         finish();
     }
 

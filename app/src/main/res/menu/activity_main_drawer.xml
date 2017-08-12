@@ -11,8 +11,16 @@
         </item>
     </group>
 
+    <group android:id="@+id/grp2" android:checkableBehavior="all">
 
-    <group android:id="@+id/grp2" android:checkableBehavior="all" >
+        <item
+            android:id="@+id/nav_contactus"
+            android:title="ارتباط با ما "
+            android:icon="@drawable/iconnnn">
+        </item>
+    </group>
+
+    <group android:id="@+id/grp3" android:checkableBehavior="all" >
         <item
             android:id="@+id/nav_logout"
             android:title="خروج"
