@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
            // progressBar.setVisibility(View.GONE);
         //    GlobalVar.setDeviceID(result);
 
-           Intent intent = new Intent(MainActivity.this, PageMoshaverin.class);
+           Intent intent = new Intent(MainActivity.this, PageLogin.class);
          //   intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
          //   intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
          //   intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);

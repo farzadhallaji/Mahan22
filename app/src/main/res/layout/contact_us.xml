@@ -114,44 +114,44 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        >
-                        <ListView
+                        android:layout_height="match_parent">
+
+                        <GridView
+                            android:id="@+id/hayajedsin"
                             android:layout_width="match_parent"
-                            android:layout_height="30dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginRight="40dp"
+                            android:layout_height="50dp"
+                            android:layout_marginBottom="20dp"
                             android:layout_marginLeft="40dp"
-                            android:id="@+id/listssss"
+                            android:layout_marginRight="40dp"
+                            android:layout_marginTop="20dp"
+                            android:numColumns="4" />
 
-                            />
+                        <EditText
+                            android:id="@+id/getmatn"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_below="@+id/hayajedsin"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="50dp"
+                            android:layout_marginRight="50dp"
+                            android:layout_marginTop="15dp"
+                            android:background="#fff"
+                            android:hint="متن پیام"
+                            android:inputType="text"
+                            android:textColorHint="#000"
+                            android:textSize="13dp" />
 
-                       <EditText
-                           android:layout_width="match_parent"
-                           android:layout_height="100dp"
-                           android:background="#fff"
-                           android:layout_marginTop="15dp"
-                           android:layout_centerHorizontal="true"
-                           android:layout_marginRight="50dp"
-                           android:id="@+id/getmatn"
-                           android:textColorHint="#000"
-                           android:hint="متن پیام"
-                           android:textSize="13dp"
-                           android:inputType="text"
-                           android:layout_marginLeft="50dp"
-                           android:layout_below="@+id/listssss"/>
                         <Button
                             android:id="@+id/sendform"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_below="@+id/getmatn"
+                            android:layout_centerHorizontal="true"
                             android:layout_gravity="center"
                             android:layout_marginTop="20dp"
                             android:background="#e3010f"
-                            android:layout_below="@+id/getmatn"
-                            android:layout_centerHorizontal="true"
-                            android:textColor="#fff"
                             android:text="ارسال فرم"
-                            />
+                            android:textColor="#fff" />
 
                     </RelativeLayout>
 

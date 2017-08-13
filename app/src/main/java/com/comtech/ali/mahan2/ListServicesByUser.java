@@ -88,8 +88,8 @@ public class ListServicesByUser extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     //view.setSelected(true);
-                    expandableListView.setAdapter(new ItemServiceByUser(ListServicesByUser.this, totalList));
                     GlobalVar.SELECTED_ITEM_SICH_OLUB=i;
+                    expandableListView.setAdapter(new ItemServiceByUser(ListServicesByUser.this, totalList));
                     int h1 = expandableListView.getHeight();
                     int h2 = view.getHeight();
                     expandableListView.setSelectionFromTop(i, h1/2 - h2/2);

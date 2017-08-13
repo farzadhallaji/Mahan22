@@ -15,8 +15,10 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -27,10 +29,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.comtech.ali.mahan2.Helper.AdapterContact;
 import com.comtech.ali.mahan2.model.GlobalVar;
 import com.crashlytics.android.Crashlytics;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import io.fabric.sdk.android.Fabric;
@@ -54,6 +60,8 @@ public class contact_us extends AppCompatActivity
  //   int tempcount=0;
 
     private RequestQueue MyRequestQueue;
+    List<String> supplierNames;
+    GridView gridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +84,25 @@ public class contact_us extends AppCompatActivity
         });
         Fabric.with(this, new Crashlytics());
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        gridView = (GridView)findViewById(R.id.hayajedsin);
+        supplierNames = Arrays.asList("مالی", "فروش","آموزشی", "مدیریت");
+        assert gridView != null;
+        gridView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        gridView.setAdapter(new AdapterContact(getApplicationContext(),supplierNames));
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //GlobalVar.SELECTED_ITEM_CONTACT=position;
+                Log.i("iopl,uhnf vxc fvdfv","sdsdcsdcsdcsdcsdcsdcsdc"+position);
+                //AdapterContact adapterContact =new AdapterContact(contact_us.this,new ArrayList<String>());
+                //gridView.setAdapter(adapterContact);
+
+
+            }
+        });
+
+        /*drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -89,7 +115,7 @@ public class contact_us extends AppCompatActivity
                 drawer.openDrawer(GravityCompat.END);
 
             }
-        });
+        });*/
 
 /*
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -117,8 +143,8 @@ public class contact_us extends AppCompatActivity
             }
         });*/
 
-        LayoutInflater li = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        ftView = li.inflate(R.layout.footer_view, null);
+        /*LayoutInflater li = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        ftView = li.inflate(R.layout.footer_view, null);*/
 
 
     }
@@ -188,7 +214,7 @@ public class contact_us extends AppCompatActivity
                 MyData.put("userid", GlobalVar.getUserID());
                 MyData.put("subject",mozou.getText().toString());
                 MyData.put("content",matn.getText().toString());
-                MyData.put("section","");
+                MyData.put("section",supplierNames.get(GlobalVar.SELECTED_ITEM_CONTACT));
 
 
                 Log.i("qwertyuioaladfffgree", MyData.toString());
@@ -251,10 +277,7 @@ public class contact_us extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.END)) {
-            drawer.closeDrawer(GravityCompat.END);
-        }
+
         Intent intent = new Intent(contact_us.this,PageMoshaverin.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

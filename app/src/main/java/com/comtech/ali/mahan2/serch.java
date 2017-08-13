@@ -79,12 +79,11 @@ public class serch extends AppCompatActivity
        });
         Fabric.with(this, new Crashlytics());
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+       /* drawer = (DrawerLayout) findViewById(R.id.drawer_layout);*/
+        /*NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);*/
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        ImageView imageView = (ImageView) findViewById(R.id.menuButton);
+       /* ImageView imageView = (ImageView) findViewById(R.id.menuButton);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,7 +91,7 @@ public class serch extends AppCompatActivity
                 drawer.openDrawer(GravityCompat.END);
 
             }
-        });
+        });*/
         listView = (ListView) findViewById(R.id.lististdssd);
 
 /*
@@ -128,10 +127,10 @@ public class serch extends AppCompatActivity
     }
     void method3(final String userid ,final String fnname) {
 
-        ProgressBar progressbarsandaha =(ProgressBar)findViewById(R.id.myProgress);
+        /*ProgressBar progressbarsandaha =(ProgressBar)findViewById(R.id.myProgress);
         progressbarsandaha.setVisibility(View.VISIBLE);
         final TextView textView=(TextView)findViewById(R.id.myTextProgress);
-        textView.setVisibility(View.VISIBLE);
+        textView.setVisibility(View.VISIBLE);*/
         listView.setVisibility(View.INVISIBLE);
 
         MyRequestQueue = Volley.newRequestQueue(this);
@@ -179,9 +178,9 @@ public class serch extends AppCompatActivity
                     e.printStackTrace();
                 }
 
-                ProgressBar progressbarsandaha =(ProgressBar)findViewById(R.id.myProgress);
+               /* ProgressBar progressbarsandaha =(ProgressBar)findViewById(R.id.myProgress);
                 progressbarsandaha.setVisibility(View.INVISIBLE);
-                textView.setVisibility(View.INVISIBLE);
+                textView.setVisibility(View.INVISIBLE);*/
 
                 listView.setVisibility(View.VISIBLE);
 
@@ -254,19 +253,19 @@ public class serch extends AppCompatActivity
 
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        *//*DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.END)) {
             drawer.closeDrawer(GravityCompat.END);
-        }
-      /*  Intent intent = new Intent(PageMoshaverin.this,PageLogin.class);
+        }*//*
+      *//*  Intent intent = new Intent(PageMoshaverin.this,PageLogin.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(intent);*/
+        startActivity(intent);*//*
         finish();
     }
-
+*/
 
 }

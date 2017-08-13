@@ -63,6 +63,8 @@ public class PageLogin extends AppCompatActivity {
 
                     else {
                         requestDataa();
+                        //Toast.makeText(getApplicationContext(), "1", Toast.LENGTH_SHORT).show();
+
                     }
                 }
             });
@@ -110,6 +112,8 @@ public class PageLogin extends AppCompatActivity {
                     Log.i("'oliknhbvc", jsonObject.toString());
                     String Message = jsonObject.getString("msg");
                     String s = jsonObject.getString("state");
+                    //Toast.makeText(getApplicationContext(), jsonObject.toString(), Toast.LENGTH_SHORT).show();
+
 
                     //    ProgressBar progressbarsandaha =(ProgressBar)findViewById(R.id.progressbarsandaha);
                     //  progressbarsandaha.setVisibility(View.INVISIBLE);
@@ -134,21 +138,13 @@ public class PageLogin extends AppCompatActivity {
         View dialogView = inflater.inflate(R.layout.alert_dialog_login, null);
 
         if(s.equals("1")){
-
             final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-
             dialogBuilder.setView(dialogView);
-
             TextView textView =(TextView)dialogView.findViewById(R.id.aaT);
             textView.setText(message);
-
             Button button = (Button)dialogView.findViewById(R.id.buttombastan);
-
-            /*EditText editText = (EditText) dialogView.findViewById(R.id.label_field);
-            editText.setText("test label");*/
             final AlertDialog alertDialog = dialogBuilder.create();
             alertDialog.show();
-
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -158,19 +154,11 @@ public class PageLogin extends AppCompatActivity {
                 }
             });
         }else if(s.equals("-1")){
-
-            final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-
+            /*final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
             dialogBuilder.setView(dialogView);
-
             TextView textView =(TextView)dialogView.findViewById(R.id.aaT);
             textView.setText(message);
-            TextView te =(TextView)dialogView.findViewById(R.id.aT);
-            te.setText("خطا");
             Button button = (Button)dialogView.findViewById(R.id.buttombastan);
-
-            /*EditText editText = (EditText) dialogView.findViewById(R.id.label_field);
-            editText.setText("test label");*/
             final AlertDialog alertDialog = dialogBuilder.create();
             alertDialog.show();
 
@@ -180,9 +168,10 @@ public class PageLogin extends AppCompatActivity {
                     alertDialog.cancel();
 
                 }
-            });
+            });*/
 
-
+            Intent intent = new Intent(PageLogin.this,Sanbtenam.class);
+            startActivity(intent);
 
         }
 

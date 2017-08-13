@@ -57,6 +57,7 @@ public class ExplainMoshaver2 extends Activity
 
 
     String serviceidi="84";
+    String PageName="84";
     ListView listView;
 
     @Override
@@ -89,12 +90,20 @@ public class ExplainMoshaver2 extends Activity
             }
         });*/
 
+
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if(extras == null) {
                 serviceidi= "0";
+                PageName="";
+
             } else {
                 serviceidi= extras.getString("ServiceID");
+                PageName= extras.getString("PageName");
+
+                TextView textView = (TextView)findViewById(R.id.PageName);
+                textView.setText(PageName);
+
             }
         } else {
             serviceidi= (String) savedInstanceState.getSerializable("ServiceID");

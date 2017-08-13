@@ -39,36 +39,44 @@ public class Sanbtenam extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sabte_nam);
 
-        EditText nem=(EditText)findViewById(R.id.neme);
-        EditText emel=(EditText)findViewById(R.id.lele);
-        EditText shomre=(EditText)findViewById(R.id.hele);
-        EditText sen=(EditText)findViewById(R.id.pppp);
-        EditText shoghl=(EditText)findViewById(R.id.popopopo);
+        nem=(EditText)findViewById(R.id.neme);
+        emel=(EditText)findViewById(R.id.lele);
+        shomre=(EditText)findViewById(R.id.hele);
+        sen=(EditText)findViewById(R.id.pppp);
+        shoghl=(EditText)findViewById(R.id.popopopo);
 
-        Button send=(Button)findViewById(R.id.ButtonSend);
+        Button send=(Button)findViewById(R.id.asadasasadsButton);
 
         send.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        requestDataaaaa();
-    }
+            @Override
+            public void onClick(View view) {
+                //Toast.makeText(getApplicationContext(),"asad", Toast.LENGTH_LONG).show();
+                requestDataaaaa();
+            }
         });
     }
     private void requestDataaaaa() {
 
-        ProgressBar progressbarsandaha =(ProgressBar)findViewById(R.id.myProgress);
+        /*ProgressBar progressbarsandaha =(ProgressBar)findViewById(R.id.myProgress);
         progressbarsandaha.setVisibility(View.VISIBLE);
         final TextView textView=(TextView)findViewById(R.id.myTextProgress);
-        textView.setVisibility(View.VISIBLE);
+        textView.setVisibility(View.VISIBLE);*/
 
         RequestParams params = new RequestParams();
 
-        params.put("name", nem.getText().toString()); //Add the data you'd like to send to the server.
-        params.put("age", sen.getText().toString()); //Add the data you'd like to send to the server.
-        params.put("job", shoghl.getText().toString()); //Add the data you'd like to send to the server.
-        params.put("phone", shomre.getText().toString()); //Add the data you'd like to send to the server.
-        params.put("email", emel.getText().toString()); //Add the data you'd like to send to the server.
-        params.put("fnname", "mahanregister");
+        try {
+            params.put("name", nem.getText().toString()); //Add the data you'd like to send to the server.
+            params.put("age", sen.getText().toString()); //Add the data you'd like to send to the server.
+            params.put("job", shoghl.getText().toString()); //Add the data you'd like to send to the server.
+            params.put("phone", shomre.getText().toString()); //Add the data you'd like to send to the server.
+            params.put("email", emel.getText().toString()); //Add the data you'd like to send to the server.
+            params.put("fnname", "mahanregister");
+
+
+
+        }catch (Exception ignored){}
+
+
 
         client.post("http://iusnews.ir/webservicesmahan/", params, new AsyncHttpResponseHandler() {
             @Override
@@ -77,10 +85,10 @@ public class Sanbtenam extends Activity {
                     JSONObject jsonObject = new JSONObject(new String(responseBody));
                     Log.i("gfgfgtr", jsonObject.toString());
 
-                    ProgressBar progressbarsandaha =(ProgressBar)findViewById(R.id.myProgress);
+                   /* ProgressBar progressbarsandaha =(ProgressBar)findViewById(R.id.myProgress);
                     progressbarsandaha.setVisibility(View.INVISIBLE);
                     final TextView textView=(TextView)findViewById(R.id.myTextProgress);
-                    textView.setVisibility(View.INVISIBLE);
+                    textView.setVisibility(View.INVISIBLE);*/
 
                     try {
 

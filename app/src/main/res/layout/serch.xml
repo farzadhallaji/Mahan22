@@ -123,28 +123,6 @@
                             android:clickable="true"
                             tools:listitem="@layout/item_news"
                             />
-                        <ProgressBar
-                            android:id="@+id/myProgress"
-                            android:layout_width="90dp"
-                            android:layout_height="90dp"
-                            android:progress="@integer/google_play_services_version"
-                            android:layout_centerVertical="true"
-                            android:layout_centerHorizontal="true"
-                            />
-                        <TextView
-                            android:id="@+id/myTextProgress"
-                            android:text="لطفا منتظر بمانید"
-                            android:textColor="#cc0066"
-                            android:textSize="12dp"
-                            android:textAlignment="center"
-                            android:layout_marginTop="30dp"
-                            android:layout_alignLeft="@id/myProgress"
-                            android:layout_alignTop="@id/myProgress"
-                            android:layout_alignRight="@id/myProgress"
-                            android:layout_alignBottom="@id/myProgress"
-                            android:background="@android:color/transparent"
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content" />
 
 
                     </RelativeLayout>

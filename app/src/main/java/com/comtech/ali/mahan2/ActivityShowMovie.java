@@ -1,6 +1,7 @@
 package com.comtech.ali.mahan2;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -145,8 +146,9 @@ public class ActivityShowMovie extends AppCompatActivity {
             final VideoView videoView = (VideoView)findViewById(R.id.movieninahsi);
             assert videoView != null;
             videoView.setVideoURI(vidUri);
-
-            final ImageView imageView = (ImageView)findViewById(R.id.playimg);
+            videoView.setBackgroundColor(Color.TRANSPARENT);
+            videoView.setZOrderOnTop(true);
+            /*final ImageView imageView = (ImageView)findViewById(R.id.playimg);
             assert imageView != null;
             imageView.setVisibility(View.VISIBLE);
             imageView.setOnClickListener(new View.OnClickListener() {
@@ -164,7 +166,7 @@ public class ActivityShowMovie extends AppCompatActivity {
                     imageView.setVisibility(View.VISIBLE);
                 }
             });
-
+*/
         } catch (JSONException e) {
             e.printStackTrace();
         }

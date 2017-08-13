@@ -100,6 +100,8 @@ public class PageMoshaverin extends AppCompatActivity
         }
 
 
+
+
         listView = (GridView) findViewById(R.id.gridview);
 
 
@@ -132,6 +134,7 @@ public class PageMoshaverin extends AppCompatActivity
                 }else{
                     Intent intent = new Intent(PageMoshaverin.this, ExplainMoshaver2.class);
                     intent.putExtra("ServiceID", totalList.get(position).getServiceID());
+                    intent.putExtra("PageName", totalList.get(position).getService());
                     startActivity(intent);  //
                 }
             }
@@ -140,6 +143,17 @@ public class PageMoshaverin extends AppCompatActivity
 
         LayoutInflater li = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         ftView = li.inflate(R.layout.footer_view, null);
+
+
+        ImageView search = (ImageView)findViewById(R.id.backButton);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PageMoshaverin.this,serch.class);
+                startActivity(intent);
+            }
+        });
+
 
 
     }
@@ -252,11 +266,13 @@ public class PageMoshaverin extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_logout) {
-            Intent intent =new Intent(this , pageExit.class);
             finish();
-            startActivity(intent);
         } else if (id == R.id.nav_alaghe) {
             Intent intent =new Intent(this , PageAlaghe.class);
+            finish();
+            startActivity(intent);
+        }else if (id == R.id.nav_contactus) {
+            Intent intent =new Intent(this , contact_us.class);
             finish();
             startActivity(intent);
         }

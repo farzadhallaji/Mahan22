@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:background="#e03838"
-    android:layout_height="match_parent"
-    tools:context="azad.hallaji.farzad.com.masirezendegi.PageLogin">
-
-
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:background="@drawable/bg"
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent">
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -96,9 +89,7 @@
                     android:hint="سن"
                     android:layout_centerHorizontal="true"
                     android:background="@null"
-                    android:id="@+id/pppp"
-                    android:layout_below="@+id/dedww"
-                    />
+                    android:id="@+id/pppp" />
                 <ImageView
                     android:layout_width="200dp"
                     android:id="@+id/frfr"
@@ -137,7 +128,7 @@
                     android:text="ثبت نام"
                     android:textColor="#fff"
                     android:background="@drawable/gradient"
-                    android:id="@+id/ButtonSend"
+                    android:id="@+id/asadasasadsButton"
                     />
             </RelativeLayout>
 
@@ -157,5 +148,4 @@
             android:id="@+id/progressbarsandaha"/>
 
     </LinearLayout>
-
 </RelativeLayout>

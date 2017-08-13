@@ -29,18 +29,13 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".PageLogin"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
@@ -70,9 +65,18 @@
             android:name="io.fabric.ApiKey"
             android:value="07612b0686c4ee99900bebd7197c7fbefe38695a" />
 
-        <activity android:name=".ExplainMoshaver2" />
-        <activity android:name=".ActivityShowMovie" />
-        <activity android:name=".ActivityShowNews"></activity>
+        <activity android:name=".ExplainMoshaver2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Sanbtenam"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ActivityShowMovie"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".contact_us"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ActivityShowNews"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".serch"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

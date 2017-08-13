@@ -24,8 +24,7 @@
         android:textSize="15dp"
         android:id="@+id/aaT"
         android:textColor="#000"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/aT"/>
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="100dp"

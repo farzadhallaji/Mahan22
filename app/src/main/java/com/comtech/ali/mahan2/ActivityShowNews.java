@@ -26,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.comtech.ali.mahan2.Helper.ItemHalatiKeTypeYekNist;
+import com.comtech.ali.mahan2.model.GlobalVar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -112,8 +113,8 @@ public class ActivityShowNews extends AppCompatActivity {
                 MyData.put("contentid", contentid); //Add the data you'd like to send to the server.
                 MyData.put("typeid", typeid); //Add the data you'd like to send to the server.
                 MyData.put("fnname", "getcontent"); //Add the data you'd like to send to the server.
-                //MyData.put("userid", GlobalVar.getUserID()); //TODO dis cmnt
-                MyData.put("userid", "1"); //Add the data you'd like to send to the server.
+                MyData.put("userid", GlobalVar.getUserID()); //TODO dis cmnt
+                //MyData.put("userid", "1"); //Add the data you'd like to send to the server.
                 MyData.put("typeid", typeid);       //Add the data you'd like to send to the server.
 
                 Log.i("ActivityShowMoviy", MyData.toString());
