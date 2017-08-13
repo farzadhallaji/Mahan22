@@ -1,63 +1,98 @@
 package com.comtech.ali.mahan2.Helper;
-
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.os.AsyncTask;
-import android.util.Log;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.comtech.ali.mahan2.R;
-import com.comtech.ali.mahan2.model.GlobalVar;
-
-import java.io.InputStream;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by fayzad on 8/12/17.
  */
 
-public class AdapterContact extends ArrayAdapter<String> {
+//    private List<String> values =Arrays.asList("مالی", "فروش","آموزشی", "مدیریت");
 
-    private Context mContext;
-    private List<String> reportItemList = new ArrayList<String>();
+import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.comtech.ali.mahan2.R;
+import java.util.Arrays;
+import java.util.List;
 
-    public AdapterContact(Context context, List<String> objects) {
+/**
+ * Created by fayzad on 8/12/17.
+ */
 
-        super(context, 0, objects);
-        this.mContext = context;
-        this.reportItemList = objects;
+public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHolder> {
+
+    private List<String> mData = Arrays.asList("مالی", "فروش","آموزشی", "مدیریت");
+    private LayoutInflater mInflater;
+    private ItemClickListener mClickListener;
+
+    // data is passed into the constructor
+    public AdapterContact(Context context) {
+        this.mInflater = LayoutInflater.from(context);
+        //this.mData = data;
     }
 
+    // inflates the row layout from xml when needed
     @Override
-    public long getItemId(int position) {
-        return position; // return 0 here means All items are the same;
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = mInflater.inflate(R.layout.item_contact, parent, false);
+        ViewHolder viewHolder = new ViewHolder(view);
+        return viewHolder;
     }
 
+    // binds the data to the textview in each row
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        String animal = mData.get(position);
+        holder.myTextView.setText(animal);
+    }
 
-        LayoutInflater vi = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = vi.inflate(R.layout.item_contact, null);
+    // total number of rows
+    @Override
+    public int getItemCount() {
+        return mData.size();
+    }
 
-        TextView Name = (TextView) view.findViewById(R.id.textview);
-        Name.setText(reportItemList.get(position));
 
-        if(GlobalVar.SELECTED_ITEM_CONTACT==position){
-            Name.setBackgroundColor(0XFF085CB7);
-        }else {
-            Name.setBackgroundColor(0XFF479AF4);
+    // stores and recycles views as they are scrolled off screen
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public TextView myTextView;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            myTextView = (TextView) itemView.findViewById(R.id.textview);
+            itemView.setOnClickListener(this);
         }
-        return view;
+
+        @Override
+        public void onClick(View view) {
+            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+        }
     }
 
-}
+    // convenience method for getting data at click position
+    public String getItem(int id) {
+        return mData.get(id);
+    }
 
+    // allows clicks events to be caught
+    public void setClickListener(ItemClickListener itemClickListener) {
+        this.mClickListener = itemClickListener;
+    }
+
+    // parent activity will implement this method to respond to click events
+    public interface ItemClickListener {
+        void onItemClick(View view, int position);
+    }
+}

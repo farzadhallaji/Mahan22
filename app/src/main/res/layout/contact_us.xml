@@ -114,18 +114,56 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
+                        android:layout_margin="20dp"
                         android:layout_height="match_parent">
 
-                        <GridView
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:background="@drawable/cont"
                             android:id="@+id/hayajedsin"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_marginBottom="20dp"
-                            android:layout_marginLeft="40dp"
-                            android:layout_marginRight="40dp"
-                            android:layout_marginTop="20dp"
-                            android:numColumns="4" />
-
+                            android:layout_centerHorizontal="true"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="70dp"
+                                android:layout_height="30dp"
+                                android:text="مدیریت"
+                                android:tag="0"
+                                android:onClick="onchilid"
+                                android:background="@drawable/cont"
+                                android:textColor="#000"
+                                android:id="@+id/textmodir"
+                                android:gravity="center"/>
+                            <TextView
+                                android:layout_width="70dp"
+                                android:layout_height="30dp"
+                                android:tag="1"
+                                android:onClick="onchilid"
+                                android:background="@drawable/cont"
+                                android:text="اموزشی"
+                                android:id="@+id/textamuz"
+                                android:textColor="#000"
+                                android:gravity="center"/>
+                            <TextView
+                                android:layout_width="70dp"
+                                android:layout_height="30dp"
+                                android:onClick="onchilid"
+                                android:tag="2"
+                                android:background="@drawable/cont"
+                                android:textColor="#000"
+                                android:text="فروش"
+                                android:id="@+id/textfuru"
+                                android:gravity="center"/>
+                            <TextView
+                                android:layout_width="70dp"
+                                android:background="@drawable/cont"
+                                android:tag="3"
+                                android:textColor="#000"
+                                android:layout_height="30dp"
+                                android:text="مالی"
+                                android:onClick="onchilid"
+                                android:id="@+id/textmali"
+                                android:gravity="center"/>
+                        </LinearLayout>
                         <EditText
                             android:id="@+id/getmatn"
                             android:layout_width="match_parent"

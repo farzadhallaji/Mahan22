@@ -2,6 +2,7 @@ package com.comtech.ali.mahan2;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -21,6 +24,7 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -54,15 +58,15 @@ public class contact_us extends AppCompatActivity
 
     View ftView;
 
-    ListView listView;
+    List<String> supplies = Arrays.asList("مالی", "فروش","آموزشی", "مدیریت");
   //  ItemHalatiKeTypeYekNist adapter;
   //  List<HalatiKeYekNist> totalList=new ArrayList<>();
  //   int tempcount=0;
 
-    private RequestQueue MyRequestQueue;
-    List<String> supplierNames;
-    GridView gridView;
+    String bichar="";
 
+    private RequestQueue MyRequestQueue;
+    private TextView mod , furu , mali , amu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +75,16 @@ public class contact_us extends AppCompatActivity
         Button send = (Button)findViewById(R.id.sendform);
         mozou = (EditText)findViewById(R.id.gettekst);
         matn = (EditText)findViewById(R.id.getmatn);
+
+
+
+        mod = (TextView)findViewById(R.id.textmodir);
+        mali = (TextView)findViewById(R.id.textmali);
+        furu = (TextView)findViewById(R.id.textfuru);
+        amu = (TextView)findViewById(R.id.textamuz);
+
+
+
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,12 +99,10 @@ public class contact_us extends AppCompatActivity
         Fabric.with(this, new Crashlytics());
 
 
-        gridView = (GridView)findViewById(R.id.hayajedsin);
-        supplierNames = Arrays.asList("مالی", "فروش","آموزشی", "مدیریت");
-        assert gridView != null;
-        gridView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        gridView.setAdapter(new AdapterContact(getApplicationContext(),supplierNames));
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+
+
+        /*mRecyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //GlobalVar.SELECTED_ITEM_CONTACT=position;
@@ -99,8 +111,10 @@ public class contact_us extends AppCompatActivity
                 //gridView.setAdapter(adapterContact);
 
 
+
+
             }
-        });
+        });*/
 
         /*drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -145,6 +159,26 @@ public class contact_us extends AppCompatActivity
 
         /*LayoutInflater li = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         ftView = li.inflate(R.layout.footer_view, null);*/
+
+
+    }
+    public void onchilid(View view) {
+
+        //FF49AEE6
+        Log.i("ioumntgbfgb",view.getId()+"");
+        TextView textView = (TextView)view;
+        bichar=textView.getText().toString();
+        mali.setBackground(getDrawable(R.drawable.cont));
+        mod.setBackground(getDrawable(R.drawable.cont));
+        furu.setBackground(getDrawable(R.drawable.cont));
+        amu.setBackground(getDrawable(R.drawable.cont));
+        mali.setTextColor(Color.BLACK);
+        mod.setTextColor(Color.BLACK);
+        furu.setTextColor(Color.BLACK);
+        amu.setTextColor(Color.BLACK);
+        textView.setBackgroundColor(0XFF49AEE6);
+        textView.setTextColor(Color.WHITE);
+
 
 
     }
@@ -214,7 +248,7 @@ public class contact_us extends AppCompatActivity
                 MyData.put("userid", GlobalVar.getUserID());
                 MyData.put("subject",mozou.getText().toString());
                 MyData.put("content",matn.getText().toString());
-                MyData.put("section",supplierNames.get(GlobalVar.SELECTED_ITEM_CONTACT));
+                MyData.put("section",bichar);
 
 
                 Log.i("qwertyuioaladfffgree", MyData.toString());
@@ -285,6 +319,7 @@ public class contact_us extends AppCompatActivity
         startActivity(intent);
      //   finish();
     }
+
 
 
 }
